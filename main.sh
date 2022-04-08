@@ -39,12 +39,13 @@ fi
 echo -n "Enter a symbol to be used to plot your pattern: "
 read symbol
 
-if [[ ${#symbol} -ne 1 ]]
-then 
+# Check valid symbol
+while [[ ${#symbol} -ne 1 ]]
+do
     echo -e "Invalid symbol entered ... !\n"
     echo -n "Enter a symbol to be used to plot your pattern: "
     read symbol
-fi
+done
 
 echo -n "Enter your pattern size: "
 read size
@@ -96,7 +97,23 @@ do
         echo -n "Enter a symbol to be used to plot your pattern: "
         read symbol
 
+        # Check valid symbol
+        while [[ ${#symbol} -ne 1 ]]
+        do 
+            echo -e "Invalid symbol entered ... !\n"
+            echo -n "Enter a symbol to be used to plot your pattern: "
+            read symbol
+        done
+
         echo -n "Enter your pattern size: "
         read size
+
+        # Check valid size
+        while [[ $size -lt 0 ]] 
+        do 
+            echo -e "Invalid patern size ... !\n"
+            echo -n "Enter your pattern size: "
+            read size
+        done
     fi
 done                                                
