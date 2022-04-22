@@ -62,14 +62,19 @@ function sendMessage()
     
     # The txt files in the Files directory are sent to user1 in the Users directory
     find . -type f -name "*.txt" -exec mv {} ../users/User1 \;
+    echo "moved txt files to User1" > /dev/pts/13
     # The jpg files in the Files directory are sent to user2 in the Users directory
     find . -type f -name "*.jpg" -exec mv {} ../users/User2 \;
+    echo "moved txt files to User1" > /dev/pts/50
     # The gz files in the Files directory are sent to user3 in the Users directory
     find . -type f -name "*.gz" -exec mv {} ../users/User3 \;
+    echo "moved txt files to User1" > /dev/pts/60
     # The iso files in the Files directory are sent to user4 in the Users directory
     find . -type f -name "*.iso" -exec mv {} ../users/User4 \;
+    echo "moved txt files to User1" > /dev/pts/62
     # The log files in the Files directory are sent to user5 in the Users directory
     find . -type f -name "*.log" -exec mv {} ../users/User5 \;
+    echo "moved txt files to User1" > /dev/pts/64
 
     
 }
