@@ -61,10 +61,15 @@ function sendMessage()
     # A message indicating the sending of special files to special users displayed in the terminal windows of those users
     
     # The txt files in the Files directory are sent to user1 in the Users directory
+    find . -type f -name "*.txt" -exec mv {} ../users/User1 \;
     # The jpg files in the Files directory are sent to user2 in the Users directory
+    find . -type f -name "*.jpg" -exec mv {} ../users/User2 \;
     # The gz files in the Files directory are sent to user3 in the Users directory
+    find . -type f -name "*.gz" -exec mv {} ../users/User3 \;
     # The iso files in the Files directory are sent to user4 in the Users directory
+    find . -type f -name "*.iso" -exec mv {} ../users/User4 \;
     # The log files in the Files directory are sent to user5 in the Users directory
+    find . -type f -name "*.log" -exec mv {} ../users/User5 \;
 
     
 }
@@ -73,8 +78,7 @@ function sendMessage()
 function cleanUp()
 {
     echo "Cleaning up files"
-    cd files
-    rm *.exe   
+    find . -type f -name "*.exe" -delete
 }
 
 
@@ -82,7 +86,8 @@ function cleanUp()
 function displayStructure()
 {
     echo "Displaying the structure"
-    tree root
+    cd ..
+    tree
 }
 
 
@@ -105,5 +110,6 @@ fileTypes=("txt" "jpg" "gz" "iso" "log" "exe")
 buildStructure
 createUserDirectories
 createFileDirectories "${fileTypes[@]}"
+sendMessage
 cleanUp
 displayStructure
